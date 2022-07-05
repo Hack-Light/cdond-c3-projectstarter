@@ -275,7 +275,7 @@ jobs:
       - run:
           name: install node and npm
           command: |
-            yum install -y nodejs
+            apk add nodejs npm
       # - run:
       #     name: install awscli
       #     command: |
