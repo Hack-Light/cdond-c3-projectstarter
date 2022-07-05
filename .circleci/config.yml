@@ -275,7 +275,8 @@ jobs:
       - run:
           name: install node and npm
           command: |
-            apk add nodejs npm
+            curl -sL https://rpm.nodesource.com/setup_lts.x | bash -
+            yum -y install nodejs
       # - run:
       #     name: install awscli
       #     command: |
