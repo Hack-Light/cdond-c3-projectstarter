@@ -181,9 +181,9 @@ jobs:
             aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress'  --output text >> ./.circleci/ansible/inventory.txt
 
       - persist_to_workspace:
-          root: ~/
+          root: .
           paths:
-            - project/.circleci/ansible/inventory.txt
+            - ./.circleci/ansible/inventory.txt
       # Here's where you will add some code to rollback on failure
       - destroy-environment:
           stack: "${CIRCLE_WORKFLOW_ID:0:7}"
@@ -202,7 +202,7 @@ jobs:
           fingerprints: ["54:c4:d6:13:09:4d:37:b7:0f:2d:57:95:c8:7e:fb:f9"]
       # attach workspace
       - attach_workspace:
-          at: ~/project
+          at: .
       - run:
           name: Install dependencies
           command: |
@@ -214,8 +214,8 @@ jobs:
           name: Configure server
           command: |
             # Your code here
-
-            ansible-playbook -i ~/project/.circleci/ansible/inventory.txt ~/project/.circleci/ansible/configure-server.yml
+            cat ./.circleci/ansible/inventory.txt
+            ansible-playbook -i ./.circleci/ansible/inventory.txt ./.circleci/ansible/configure-server.yml
 
       # Here's where you will add some code to rollback on failure
       - destroy-environment:
