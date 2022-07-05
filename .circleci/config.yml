@@ -177,10 +177,8 @@ jobs:
       - run:
           name: Add back-end ip to ansible inventory
           command: |
-            # Your code here
-            aws configure list
             aws ec2 describe-instances  --query 'Reservations[*].Instances[*].PublicIpAddress'  --output text
-            aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress'  --output text >> ./.circleci/ansible/inventory.txt
+            aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress'  --output text >> ~/project/.circleci/ansible/inventory.txt
 
       - persist_to_workspace:
           root: ~/
@@ -208,7 +206,6 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-
             apk add --update tar gzip && apk add --update ansible
             pip install awscli
 
