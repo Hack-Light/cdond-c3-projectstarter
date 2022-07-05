@@ -268,14 +268,14 @@ jobs:
             yum install -y tar gzip
       - attach_workspace:
           at: ~/
-      - run:
-          name: Install anisible
-          command: |
-             yum install -y ansible
+      # - run:
+      #     name: Install anisible
+      #     command: |
+      #        yum install -y ansible
       - run:
           name: install node and npm
           command: |
-             yum install -y nodejs npm
+            yum install -y nodejs
       # - run:
       #     name: install awscli
       #     command: |
