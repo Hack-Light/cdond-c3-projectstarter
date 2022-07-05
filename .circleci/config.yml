@@ -234,11 +234,7 @@ jobs:
       - checkout
       - restore_cache:
           keys: [backend-build]
-      - run:
-          name: Install dependencies
-          command: |
-            apk add --update python3
-            pip install awscli
+
       - run:
           name: Run migrations
           no_output_timeout: 30m
