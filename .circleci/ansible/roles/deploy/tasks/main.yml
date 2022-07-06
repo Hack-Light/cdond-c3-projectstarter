@@ -7,13 +7,13 @@
 
 - name: Copy index test page
   template:
-    src: "../../../../../artifact.tar.gz"
-    dest: " ~/"
+    src: "/Users/light/Documents/practice/project3"
+    dest: "."
 
 - name: "deploy backend"
   become: true
   unarchive:
-    src: ~/artifact.tar.gz
+    src: artifact.tar.gz
     dest: ~/udapeople/
 
 - name: "run backend"
