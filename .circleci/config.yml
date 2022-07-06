@@ -322,7 +322,7 @@ jobs:
           command: |
             apk add --update nodejs npm
       - run:
-          name: Deploy backend
+          name: Deploy backend code
           no_output_timeout: 30m
           command: |
             cd backend
