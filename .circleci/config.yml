@@ -324,6 +324,11 @@ jobs:
             apk add --update tar gzip && apk add --update ansible
             pip install awscli
       - run:
+          name: install node and npm
+          command: |
+            curl -sL https://rpm.nodesource.com/setup_lts.x | bash -
+            yum -y install nodejs
+      - run:
           name: Deploy backend
           command: |
             cd backend
