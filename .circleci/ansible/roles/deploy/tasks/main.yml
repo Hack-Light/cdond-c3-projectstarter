@@ -13,7 +13,7 @@
 - name: "deploy backend"
   become: true
   unarchive:
-    src: artifact.tar.gz
+    src: /etc/artifact.tar.gz
     dest: ~/udapeople/
 
 - name: "run backend"
