@@ -349,7 +349,7 @@ jobs:
       - run:
           name: Install openssh
           command: |
-            apk add --update openssh
+            apk add --update openssh && apk add --update curl
       - run:
           name: Install dependencies
           command: |
@@ -386,6 +386,10 @@ jobs:
               return 1
             fi
       # Here's where you will add some code to rollback on failure
+
+      - destroy-environment:
+          stack: "${CIRCLE_WORKFLOW_ID:0:7}"
+      - revert-migrations
 
 #   cloudfront-update:
 #     docker:
