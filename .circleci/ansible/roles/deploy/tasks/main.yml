@@ -5,10 +5,10 @@
     path: ~/udapeople/
     state: directory
 
-- name: Copy index test page
-  template:
-    src: "artifact.tar.gz"
-    dest: "."
+# - name: Copy index test page
+#   template:
+#     src: "artifact.tar.gz"
+#     dest: "."
 
 - name: "deploy backend"
   become: true
