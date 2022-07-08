@@ -402,13 +402,13 @@ jobs:
             yum -y install tar
             yum -y install gzip
       - run:
-        name: Get old stack workflow id
-        command: |
-          OldWorkflowID=$(aws cloudformation \
-          list-exports --query "Exports[?Name==\`ID\`].Value" \
-          --no-paginate --output text)
-          echo $OldWorkflowID >> ~/OldWorkflowID.txt
-          cat ~/OldWorkflowID.txt
+          name: Get old stack workflow id
+          command: |
+            OldWorkflowID=$(aws cloudformation \
+            list-exports --query "Exports[?Name==\`ID\`].Value" \
+            --no-paginate --output text)
+            echo $OldWorkflowID >> ~/OldWorkflowID.txt
+            cat ~/OldWorkflowID.txt
       - run:
           name: Update cloudfront distribution
           command: |
@@ -444,7 +444,6 @@ jobs:
       - run:
           name: Get old stack workflow id
           command: |
-
             cat  ~/OldWorkflowID.txt
             OldWorkflowID=$(cat  ~/OldWorkflowID.txt)
             echo OldWorkflowID: ${OldWorkflowID}
