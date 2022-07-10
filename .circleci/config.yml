@@ -9,7 +9,7 @@ commands:
         type: string
     steps:
       - run:
-          name: Destroy environments
+          name: Destroy environment
           when: on_fail
           command: |
             # Your code here
