@@ -374,7 +374,7 @@ jobs:
             fi
 
       - run:
-          name: Frontend smoke test.
+          name: Frontend smoke tests.
           command: |
             URL="http://udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3-website-us-east-1.amazonaws.com/#/employees"            
             echo ${URL} 
@@ -490,5 +490,5 @@ workflows:
       - cloudfront-update:
           # requires: [deploy-backend, deploy-frontend]
           requires: [smoke-test]
-      - cleanup:
-          requires: [cloudfront-update]
+      # - cleanup:
+      #     requires: [cloudfront-update]
