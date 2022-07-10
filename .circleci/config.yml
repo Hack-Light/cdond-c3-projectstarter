@@ -352,7 +352,7 @@ jobs:
           command: |
             apk add --update openssh && apk add --update curl
       - run:
-          name: Install dependencies
+          name: Install other dependencies
           command: |
             apk add --update tar gzip && apk add --update ansible
             pip install awscli
